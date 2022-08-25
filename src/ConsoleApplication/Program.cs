@@ -14,14 +14,33 @@ namespace ConsoleApplication
     /// </summary>
     public static class Program
     {
+
+        
         /// <summary>
-        /// Punto de entrada al programa principal.
+        /// Como los objetos dejan de ser apuntados el garbage collector los va eliminando y por lo tanto no crashea el programa,
+        ///  ya que la memoria es suficiente gracias a esto
         /// </summary>
         public static void Main()
-        {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+        {   
+            int i=0;
+            while  (i!=10000000){
+                Train train = new Train("Jorge");
+                i++;
+                Console.WriteLine(train.getContador);
+
+            }
+
+            
+                Train t1= new Train("Last Train To London");
+                Train t2= new Train("Last Train To London");
+                Train t3=new Train("Runaway Train");
+                Console.WriteLine(t1==t2);
+                ///El resultado es False ya que t1 no es el mismo objeto que t2, por más que tengan el mismo identificador
+                Console.WriteLine(t2==t3);
+                ///El resultado es False ya que son diferentes objetos
+
+            
         }
+  
     }
 }
